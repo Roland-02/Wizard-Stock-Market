@@ -55,8 +55,8 @@ Module Module1
 
         Try
             Using FileStream As New FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite)
+                'file is not currently in use
                 Return False
-
             End Using
         Catch ex As IOException
             'file is locked
