@@ -88,7 +88,7 @@ Module Module1
 
         Try
 
-            Console.WriteLine("1")
+            Console.WriteLine("Connecting to database...")
 
             xl.DisplayAlerts = False
             xl.ScreenUpdating = False
@@ -96,8 +96,6 @@ Module Module1
             wb = xl.Workbooks.Open(file, [ReadOnly]:=True, UpdateLinks:=False)
             ws = DirectCast(wb.Worksheets("Sheet1"), Excel.Worksheet)
             wb.RefreshAll()
-
-            Console.WriteLine("2")
 
 
             Dim totalRow As Integer = xl.ActiveSheet.UsedRange.Rows.Count 'total number of rows
@@ -397,7 +395,7 @@ Module Module1
 
     Public Sub DefaultLoan()
         'user can't afford loan payment; take all assets
-        MsgBox("YOU CANNOT AFFORD TO PAY YOUR LOAN, YOU ACCOUNT WILL NOW BE DEFAULTED")
+        MsgBox("YOU CANNOT AFFORD TO PAY YOUR LOAN, YOUR ACCOUNT WILL NOW BE DEFAULTED")
         portList.Item(0).SellOwnedStocks()
         User1.Balance = -(User1.Balance)
         User1.Score = -(User1.Score)
